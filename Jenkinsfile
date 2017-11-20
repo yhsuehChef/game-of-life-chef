@@ -1,1 +1,12 @@
-echo 'This build is the first one after adding a Jenkinsfile'
+node('linux')
+{
+   currentBuild.displayName = "Game Of Life Chef Jenkinsfile"
+    
+   def mvnHome
+   
+   stage('Checkout')
+   {
+      mvnPath = tool 'M3.0.5-linux'
+      sh 'mvn clean install'
+   }
+}
