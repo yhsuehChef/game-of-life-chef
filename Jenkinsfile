@@ -1,0 +1,1 @@
+echo 'This build is the first one after adding a Jenkinsfile'
