@@ -1,4 +1,5 @@
-node('linux')
+// node('linux')
+node
 {
    currentBuild.displayName = "Game Of Life Chef - using Jenkinsfile"
     
