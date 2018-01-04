@@ -16,6 +16,6 @@ node
    }
    stage('Test')
    {
-      echo 'got to Test stage'
+      sh 'cd gameoflife-acceptance-tests && mvn clean verify'
    }  
 }
