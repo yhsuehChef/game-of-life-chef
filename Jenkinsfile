@@ -10,7 +10,7 @@ node
 
       sh 'mvn clean install'
    }
-   stage('Stage')
+   stage('UAT')
    {
       sh 'cd gameoflife-web && mvn jetty:run'
    }
