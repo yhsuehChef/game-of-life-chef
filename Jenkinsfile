@@ -16,13 +16,13 @@ node('linux')
    stage('Test Deployment')
    {
        parallel(
-           AcceptanceTest:
-           {
-               sh 'cd gameoflife-acceptance-tests && mvn clean verify'
-           },
            DeployToUAT:
            {
                sh 'cd gameoflife-web && mvn jetty:run'
+           },
+           AcceptanceTest:
+           {
+               sh 'cd gameoflife-acceptance-tests && mvn clean verify'
            }
         )
    }
