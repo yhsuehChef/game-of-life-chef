@@ -8,6 +8,7 @@
    //stage('Checkout')
    //{
       // mvnPath = tool 'M3.0.5-linux'
+      sh 'source /Users/yhsueh/.profile'
       sh 'mvn clean install'
    //}
 //}
