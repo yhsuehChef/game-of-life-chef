@@ -12,8 +12,7 @@ node
    }
    stage('Stage')
    {
-      sh 'cd gameoflife-web'
-      sh 'mvn jetty:run'
+      sh 'cd gameoflife-web && mvn jetty:run'
    }
    stage('Test')
    {
