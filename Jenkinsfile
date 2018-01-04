@@ -5,9 +5,9 @@
     
    // def mvnHome
    
-   stage('Checkout')
-   {
+   //stage('Checkout')
+   //{
       // mvnPath = tool 'M3.0.5-linux'
       sh 'mvn clean install'
-   }
+   //}
 //}
