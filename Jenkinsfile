@@ -2,6 +2,10 @@ node('linux')
 {
    currentBuild.displayName = "Game Of Life Chef Rally"
    
+   stage('SCM Checkout')
+   {
+      git 'https://github.com/yhsuehChef/game-of-life-chef.git'
+   }
    stage('Build')
    {
       // mvnPath = tool 'M3.0.5-linux'
