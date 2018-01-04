@@ -15,10 +15,15 @@ node('linux')
    }
    stage('UAT')
    {
-      sh 'cd gameoflife-web && mvn jetty:run'
+       parallel(
+           DeployToUAT:
+           {
+               sh 'cd gameoflife-web && mvn jetty:run'
+           },
+           AcceptanceTest:
+           {
+               sh 'cd gameoflife-acceptance-tests && mvn clean verify'
+           }
+        )
    }
-   stage('Test')
-   {
-      sh 'cd gameoflife-acceptance-tests && mvn clean verify'
-   }  
 }
