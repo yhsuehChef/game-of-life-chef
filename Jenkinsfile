@@ -1,5 +1,4 @@
-// node('linux')
-node
+node('linux')
 {
    currentBuild.displayName = "Game Of Life Chef Rally"
    
