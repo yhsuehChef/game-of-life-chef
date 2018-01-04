@@ -1,6 +1,6 @@
 // node('linux')
-node
-{
+//node
+//{
    currentBuild.displayName = "Game Of Life Chef - using Jenkinsfile"
     
    // def mvnHome
@@ -10,4 +10,4 @@ node
       // mvnPath = tool 'M3.0.5-linux'
       sh 'mvn clean install'
    }
-}
+//}
