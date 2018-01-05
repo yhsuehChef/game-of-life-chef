@@ -13,17 +13,24 @@ node('linux')
 
       sh 'mvn clean install'
    }
-   stage('Test Deployment')
+   stage('Test')
    {
        parallel(
-           DeployToUAT:
+           IntegrationTestOnJetty:
            {
-               sh 'cd gameoflife-web && mvn jetty:run'
+               sh 'cd gameoflife-web && mvn jetty:run &'
+               sleep 30
+               sh 'curl localhost:9090'
+               sh '(sleep 120; lsof -t -i tcp:9090 | xargs kill) &'
            },
-           AcceptanceTest:
-           {
-               sh 'cd gameoflife-acceptance-tests && mvn clean verify'
+           SonarScan:
+           {   sh 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=48428c97f3d54d35c974dea22d2cc285bc11f8a6'
+               //sh 'cd gameoflife-acceptance-tests && mvn clean verify'
            }
         )
+   }
+   stage('Deploy')
+   {
+       echo "Application can be deployed to target of choice here"
    }
 }
